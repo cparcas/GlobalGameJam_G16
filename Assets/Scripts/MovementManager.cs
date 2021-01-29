@@ -14,10 +14,14 @@ public class MovementManager : MonoBehaviour
     private BoxCollider2D m_BoxCollider2D;  // Reference to the player's BoxCollider2D component.
 
     private bool m_Grounded = true;     // Whether or not the player is grounded
+
+   
+
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private bool m_HasJumped = false;   // For determining which way the player is currently facing.
     private int m_NumRings = 0;         // Number of rings collected
     private Transform newSpawnPoint;
+    
 
     // private AudioSource m_JumpAudio;
     // private AudioSource m_LandAudio;
@@ -28,7 +32,7 @@ public class MovementManager : MonoBehaviour
     private void Awake()
     {
         // Setting up references.
-        m_Anim = GetComponent<Animator>();
+        //m_Anim = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_BoxCollider2D = GetComponent<BoxCollider2D>();
 
@@ -42,7 +46,7 @@ public class MovementManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+        //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
 
         if (m_Rigidbody2D.velocity.x != 0 && m_Grounded)
         { 
@@ -63,37 +67,37 @@ public class MovementManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //if (other.contacts[0].normal.y > 0)) 
-        //{
-        //    // Debug.Log(gameObject.name + " Enter Collision");
-        //    m_Grounded = true;
-        //    m_Anim.SetBool("Ground", true);
-        //    m_LandAudio.Play();
+        if (other.contacts[0].normal.y > 0) 
+        {
+            // Debug.Log(gameObject.name + " Enter Collision");
+            m_Grounded = true;
+            //m_Anim.SetBool("Ground", true);
+            //m_LandAudio.Play();
 
-        //    if (m_HasJumped)
-        //    {
-        //        m_HasJumped = false;
-        //    }
-        //}
+            if (m_HasJumped)
+            {
+                m_HasJumped = false;
+            }
+        }
         //else 
-        if (other.collider.CompareTag("Spikes"))
-        {
-            //m_SpikesAudio.Play();
+        //if (other.collider.CompareTag("Spikes"))
+        //{
+        //    //m_SpikesAudio.Play();
 
-            Respawn();
-        }
-        else if (other.collider.CompareTag("Ring"))
-        {
-            m_NumRings++;
-            Destroy(other.gameObject);
+        //    Respawn();
+        //}
+        //else if (other.collider.CompareTag("Ring"))
+        //{
+        //    m_NumRings++;
+        //    Destroy(other.gameObject);
 
-            //m_CollectRingAudio.Play();
-        }
+        //    //m_CollectRingAudio.Play();
+        //}
 
-        if (other.gameObject.CompareTag("LevelFinish"))
-        {
-            other.gameObject.GetComponent<SceneCaller>().NextScene();
-        }
+        //if (other.gameObject.CompareTag("LevelFinish"))
+        //{
+        //    other.gameObject.GetComponent<SceneCaller>().NextScene();
+        //}
     }
 
     public void Move(float move)
@@ -101,10 +105,12 @@ public class MovementManager : MonoBehaviour
         // Only control the player if grounded or airControl is turned on
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
-        m_Anim.SetFloat("Speed", Mathf.Abs(move));
-
-        // Move the character
+        //m_Anim.SetFloat("Speed", Mathf.Abs(move));
+       
         m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+        
+        // Move the character
+       
 
         // If the input is moving the player one way and the player is facing the other...
         if ((move > 0 && !m_FacingRight) || (move < 0 && m_FacingRight))
@@ -121,7 +127,7 @@ public class MovementManager : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            m_Anim.SetBool("Ground", false);
+            //m_Anim.SetBool("Ground", false);
             m_HasJumped = true;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
@@ -150,5 +156,9 @@ public class MovementManager : MonoBehaviour
     public bool IsGrounded()
     {
         return m_Grounded;
+    }
+    internal void removeVelocity()
+    {
+        m_Rigidbody2D.velocity = new Vector2(0,0);
     }
 }

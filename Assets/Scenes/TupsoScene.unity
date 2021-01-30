@@ -971,7 +971,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2006664088289217478, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
       propertyPath: m_JumpForce
-      value: 400
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006664088289217478, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
+      propertyPath: m_MaxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360650588984662903, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7593768575726304793, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
       propertyPath: m_Name

@@ -49,8 +49,8 @@ public class MovementManager : MonoBehaviour
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = 4;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.01f;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = 2;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.1f;
         }
     }
     private void FixedUpdate()
@@ -98,8 +98,8 @@ public class MovementManager : MonoBehaviour
         }else 
         if (other.collider.CompareTag("LigthObj"))
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius =10;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.05f;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius =5;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.4f;
             timeLeft = 5;
             Destroy(other.gameObject);
         }

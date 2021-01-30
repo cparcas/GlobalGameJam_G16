@@ -1637,6 +1637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 3346215432135147742, guid: a98db5646b397514c8bc7f5149a640b4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3346215432135147743, guid: a98db5646b397514c8bc7f5149a640b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.23736358
@@ -1768,7 +1772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6946149025693106687, guid: d360e461477ada44f88053ecba48118d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.29
+      value: -11.04
       objectReference: {fileID: 0}
     - target: {fileID: 6946149025693106687, guid: d360e461477ada44f88053ecba48118d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1914,7 +1918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1171206895, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2
+      value: 4.17
       objectReference: {fileID: 0}
     - target: {fileID: 2732491566328220142, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
       propertyPath: m_SpawnPoint
@@ -1980,5 +1984,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9091065971985888754, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a4cdb3a6e11fc5644b396c09390bea4e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}

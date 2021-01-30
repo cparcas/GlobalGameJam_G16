@@ -9,6 +9,7 @@ public class MovementManager : MonoBehaviour
     [SerializeField] private float m_MaxSpeed = 10f;         // The fastest the player can travel in the x axis.
     [SerializeField] private float m_JumpForce = 400f;       // Amount of force added when the player jumps.
     [SerializeField] private Transform m_SpawnPoint = null;
+    public GameObject actualKey;
 
     private Animator m_Anim;            // Reference to the player's Animator component.
     private Rigidbody2D m_Rigidbody2D;  // Reference to the player's Rigidbody2D component.

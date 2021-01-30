@@ -17,7 +17,11 @@ public class MovementManager : MonoBehaviour
 
     private bool m_Grounded = true;     // Whether or not the player is grounded
 
-   
+    [SerializeField] float radioIInicial;
+    [SerializeField] float radioOInicial;
+    [SerializeField] float radioIFinal;
+    [SerializeField] float radioOFinal;
+
 
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private bool m_HasJumped = false;   // For determining which way the player is currently facing.
@@ -48,10 +52,10 @@ public class MovementManager : MonoBehaviour
     private void Update()
     {
         timeLeft -= Time.deltaTime;
-        if (timeLeft < 0)
+        if (timeLeft > 0)
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = 2;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.1f;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = radioOInicial;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = radioIInicial;
         }
     }
     private void FixedUpdate()
@@ -99,8 +103,8 @@ public class MovementManager : MonoBehaviour
         }else 
         if (other.collider.CompareTag("LigthObj"))
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius =5;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.4f;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = radioOFinal;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = radioIFinal;
             timeLeft = 5;
             Destroy(other.gameObject);
         }

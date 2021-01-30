@@ -9,9 +9,6 @@ public class ChangeCameras : MonoBehaviour
     InputManager input;
 
     [SerializeField]
-    public Transform target;
-
-    [SerializeField]
     public float transitionDuration;
     
     [SerializeField]
@@ -53,30 +50,30 @@ public class ChangeCameras : MonoBehaviour
             globalCamera = !globalCamera;
             if (globalCamera)
             {
-                StartCoroutine(Transition(defaultvalueNear, defaultvalueLigth, input.Player1.transform));
+                StartCoroutine(Transition(defaultvalueNear, defaultvalueLigth));
                 puesbools = true;
-                if (puesbools)
-                {
-                    StartCoroutine(Transition2(input.Player1.transform));
-                    puesbools = false;
-                }
+                //if (puesbools)
+                //{
+                //    StartCoroutine(Transition2(input.Player1.transform));
+                //    puesbools = false;
+                //}
 
             }
             else
             {
-                StartCoroutine(Transition(nearest, intensidadGlobal, puntoFinal));
-                puesbools = true;
-                if (puesbools)
-                {
-                    StartCoroutine(Transition2(puntoFinal));
-                    puesbools = false;
-                }
+                StartCoroutine(Transition(nearest, intensidadGlobal));
+                //puesbools = true;
+                //if (puesbools)
+                //{
+                //    StartCoroutine(Transition2(puntoFinal));
+                //    puesbools = false;
+                //}
             }
         }
        
     }
 
-    IEnumerator Transition(float value, float intensity, Transform tt)
+    IEnumerator Transition(float value, float intensity)
     {
         float t = 0.0f;
         float ini = this.GetComponent<Camera>().orthographicSize;
@@ -96,12 +93,12 @@ public class ChangeCameras : MonoBehaviour
     {
         float t = 0.0f;
         float startingPosX = this.transform.position.x;
-        float startingPosY = this.transform.position.y +10;
+        float startingPosY = this.transform.position.y;
         while (t < 1.0f)
         {
             t += Time.deltaTime * (Time.timeScale / transitionDuration);
             float x = Mathf.Lerp(startingPosX, ttt.position.x, t);
-            float y = this.transform.position.y;
+            float y = Mathf.Lerp(startingPosY, ttt.position.y, t);
             this.transform.position = new Vector3(x, y, -10);
             yield return 0;
         }

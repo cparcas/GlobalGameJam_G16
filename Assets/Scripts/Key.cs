@@ -31,6 +31,7 @@ public class Key : MonoBehaviour
             movementManagerScript.actualKey = key;
             key_audio.Play();
             this.GetComponent<BoxCollider2D>().enabled = false;
+            this.GetComponent<SpriteRenderer>().enabled = false;
         }
 
     }

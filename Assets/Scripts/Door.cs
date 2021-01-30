@@ -54,6 +54,7 @@ public class Door : MonoBehaviour
             {
                 door_state = State.OPEN;
                 door_audio.Play();
+                this.GetComponent<SpriteRenderer>().enabled = false;
             }
 
         }

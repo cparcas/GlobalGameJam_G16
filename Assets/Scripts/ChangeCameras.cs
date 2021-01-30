@@ -40,14 +40,7 @@ public class ChangeCameras : MonoBehaviour
 
     public void Update()
     {
-<<<<<<< HEAD
-        if (globalCamera)
-        {
-            Debug.Log("Estoy entrando aqui bro");
-=======
         if (globalCamera) {
-            //Debug.Log("Estoy entrando aqui bro");
->>>>>>> 8ce41fdd0f6fd2205b7249557c41601f47608b5b
             this.transform.position = new Vector3(input.Player1.transform.position.x, input.Player1.transform.position.y, this.transform.position.z);
         }
         if (Input.GetKeyDown(KeyCode.E) && timer.canChange)
@@ -83,53 +76,21 @@ public class ChangeCameras : MonoBehaviour
             t += Time.deltaTime * (Time.timeScale / transitionDuration);
             this.GetComponent<Camera>().orthographicSize = Mathf.Lerp(ini, value, t);
             GameObject.FindGameObjectWithTag("GlobalLigth").GetComponent<Light2D>().intensity = Mathf.Lerp(ints, intensity, t);
-            yield return new WaitForSeconds(5);
-
-        }
-        float tr = 0.0f;
-        float startingPosX = this.transform.position.x;
-        float startingPosY = this.transform.position.y;
-        while (tr < 1.0f)
-        {
-            t += Time.deltaTime * (Time.timeScale / 5);
-            float x = Mathf.Lerp(startingPosX, ttt.position.x, tr);
-            float y = this.transform.position.y;
-            this.transform.position = new Vector3(x, y, -10);
-        }
-    }
-    IEnumerator Transition2(Transform tt)
-    {
-
-        float t = 0.0f;
-        float startingPosX = this.transform.position.x;
-        float startingPosY = this.transform.position.y;
-        while (t < 1.0f)
-        {
-            t += Time.deltaTime * (Time.timeScale / 5);
-            float x = Mathf.Lerp(startingPosX, tt.position.x, t);
-            float y = this.transform.position.y;
-            this.transform.position = new Vector3(x, y, -10);
             yield return 0;
+
         }
+      
     }
-    IEnumerator ExampleCoroutine()
-    {
-        yield return new WaitForSeconds(5);
-    }
-    //IEnumerator Transitions(Transform tt)
-    //{
-    //    Debug.LogWarning("entro aqui broooo");
-    //    float t = 0.0f;
-    //    float startingPosX = this.transform.position.x;
-    //    while (t < 1.0f)
-    //    {
-    //        t += Time.deltaTime * (Time.timeScale / transitionDuration);
-    //        float x = Mathf.Lerp(startingPosX, tt.position.x, t);
-    //        this.transform.position = new Vector3(x, this.transform.position.y, -10);
+        //float t = 0.0f;
+        //float startingPosX = this.transform.position.x;
+        //float startingPosY = this.transform.position.y;
+        //while (t < 1.0f)
+        //{
+        //    t += Time.deltaTime * (Time.timeScale / 5);
+        //    float x = Mathf.Lerp(startingPosX, tt.position.x, t);
+        //    float y = this.transform.position.y;
+        //    this.transform.position = new Vector3(x, y, -10);
+        //    yield return 0;
+        //}
 
-
-    //        yield return 0;
-    //    }
-
-    //}
 }

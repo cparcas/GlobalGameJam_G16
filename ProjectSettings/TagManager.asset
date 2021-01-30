@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Timer
+  - LigthObj
   layers:
   - Default
   - TransparentFX

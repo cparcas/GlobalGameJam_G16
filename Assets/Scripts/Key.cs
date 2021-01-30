@@ -7,6 +7,7 @@ public class Key : MonoBehaviour
 
     [SerializeField] private Color color;
     private GameObject player;
+    public AudioSource key_audio;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,8 @@ public class Key : MonoBehaviour
             GameObject key =  this.gameObject;
             MovementManager movementManagerScript = player.GetComponent<MovementManager>();
             movementManagerScript.actualKey = key;
+            key_audio.Play();
+            this.GetComponent<BoxCollider2D>().enabled = false;
         }
 
     }

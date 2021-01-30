@@ -229,8 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4a1e03ab146e5448842f3b3299e662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door_audio: {fileID: 0}
-  lever: {fileID: 0}
+  keyThatOpensThisMotherfuckingDoor: {fileID: 0}
 --- !u!212 &1104913429
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -899,7 +898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c17c81c0d255b409b3b2f69dd875c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idKey: 0
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &2120943413
 SpriteRenderer:

@@ -79,6 +79,16 @@ public class MovementManager : MonoBehaviour
                 m_HasJumped = false;
             }
         }
+        else
+        if (other.collider.CompareTag("Timer"))
+        {
+            GameObject tt = GameObject.Find("Timer");
+            Timer temp = tt.GetComponent<Timer>();
+            temp.moreTime();
+            Destroy(other.gameObject);
+        }
+
+
         //else 
         //if (other.collider.CompareTag("Spikes"))
         //{

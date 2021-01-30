@@ -9,6 +9,6 @@ public class FollowScript : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, this.transform.position.z);
+
     }
 }

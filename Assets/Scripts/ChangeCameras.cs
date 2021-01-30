@@ -34,7 +34,10 @@ public class ChangeCameras : MonoBehaviour
 
     public void Update()
     {
-
+        if (globalCamera) {
+            Debug.Log("Estoy entrando aqui bro");
+            this.transform.position = new Vector3(input.Player1.transform.position.x, input.Player1.transform.position.y, this.transform.position.z);
+        }
         if (Input.GetKeyDown(KeyCode.E) && timer.canChange)
         {
             timer.inciarContador = !timer.inciarContador;
@@ -49,17 +52,26 @@ public class ChangeCameras : MonoBehaviour
             }
          
         }
+
     }
 
     IEnumerator Transition(Transform tt, float value)
     {
         float t = 0.0f;
-        Vector2 startingPos = this.transform.position;
-        while(t < 1.0f)
+        float startingPosX = this.transform.position.x;
+        float startingPosY = this.transform.position.y;
+        float ini = this.GetComponent<Camera>().orthographicSize;
+        while (t < 1.0f)
         {
+            //Debug.LogWarning("VALGO" + this.GetComponent<Camera>().orthographicSize);
+            this.GetComponent<Camera>().orthographicSize = Mathf.Lerp(ini, value, t);
             t += Time.deltaTime * (Time.timeScale / transitionDuration);
-            transform.position = Vector2.Lerp(startingPos, tt.position, t);
-            //this.GetComponent<Camera>().orthographicSize = Mathf.Lerp(this.GetComponent<Camera>().orthographicSize, value, t);
+            float x= Mathf.Lerp(startingPosX, tt.position.x, t);
+            float y = Mathf.Lerp(startingPosY, tt.position.y, t);
+
+            this.transform.position= new Vector3(x, y, -10);
+
+          
             yield return 0;
         }
 

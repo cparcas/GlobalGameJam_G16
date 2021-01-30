@@ -33,7 +33,7 @@ public class MovementManager : MonoBehaviour
     private void Awake()
     {
         // Setting up references.
-        //m_Anim = GetComponent<Animator>();
+        m_Anim = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_BoxCollider2D = GetComponent<BoxCollider2D>();
 
@@ -131,7 +131,7 @@ public class MovementManager : MonoBehaviour
         // Only control the player if grounded or airControl is turned on
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
-        //m_Anim.SetFloat("Speed", Mathf.Abs(move));
+        m_Anim.SetFloat("Speed", Mathf.Abs(move));
         m_Rigidbody2D.freezeRotation = true;
 
         m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);

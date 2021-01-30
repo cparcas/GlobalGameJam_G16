@@ -96,14 +96,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &2440814110713146206
-AudioListener:
+--- !u!114 &3183098087963543004
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9203154700002907366}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41559fdda4af8da4db29af9f7cd2762a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clock_audio: {fileID: 295088172657884311}
+--- !u!61 &1567612376
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203154700002907366}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7, y: 0.7}
+    newSize: {x: 3.5693357, y: 7.3099995}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7}
+  m_EdgeRadius: 0
 --- !u!1001 &1646716820777036543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,7 +144,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 416981132929272050, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.922
+      value: -3.36
       objectReference: {fileID: 0}
     - target: {fileID: 416981132929272050, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
       propertyPath: m_LocalPosition.y
@@ -186,6 +217,14 @@ PrefabInstance:
     - target: {fileID: 2560886184659229593, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
       propertyPath: m_Radius
       value: 0.29980838
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560886184659229593, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360650588984662903, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7507692747806709167, guid: bd3bac0648ac1a441a484dc5f164efce, type: 3}
       propertyPath: m_SortingOrder

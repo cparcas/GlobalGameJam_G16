@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &101581265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9091065971985888753, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
+  m_PrefabInstance: {fileID: 1470461920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &101581272
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101581265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.45652485, y: 1.32807}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 5.12}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0105839, y: 1.0251181}
+  m_EdgeRadius: 0
 --- !u!1 &106432412
 GameObject:
   m_ObjectHideFlags: 0
@@ -16643,7 +16674,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2732491566328220142, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
   m_PrefabInstance: {fileID: 1470461920}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 101581265}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce737be47a83d1847a675e2149560b19, type: 3}
@@ -16796,11 +16827,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9091065971985888654, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.5
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 9091065971985888654, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.14
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 9091065971985888654, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16842,6 +16873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Found
       objectReference: {fileID: 0}
+    - target: {fileID: 9091065971985888755, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 367d0a07387af1246a15b08fff14ffaa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d6558e3000409145af9fc2ae0215218, type: 3}
 --- !u!1 &1702313911

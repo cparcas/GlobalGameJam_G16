@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private MovementManager Player1 = null;
+    [SerializeField] public MovementManager Player1 = null;
 
     // State variables
     private bool m_Jump1 = false;

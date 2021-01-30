@@ -25,9 +25,9 @@ public class MovementManager : MonoBehaviour
     private Transform newSpawnPoint;
 
     public float timeLeft = 0;
-    // private AudioSource m_JumpAudio;
+   // private AudioSource m_PickObject;
     // private AudioSource m_LandAudio;
-    // private AudioSource m_StepAudio;
+    private AudioSource m_StepAudio;
     // private AudioSource m_SpikesAudio;
     // private AudioSource m_CollectRingAudio;
 
@@ -38,10 +38,10 @@ public class MovementManager : MonoBehaviour
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_BoxCollider2D = GetComponent<BoxCollider2D>();
 
-        //AudioSource[] audioSources = GetComponents<AudioSource>();
+        AudioSource[] audioSources = GetComponents<AudioSource>();
         // m_JumpAudio = audioSources[0];
         // m_LandAudio = audioSources[1];
-        // m_StepAudio = audioSources[2];
+        m_StepAudio = audioSources[0];
         // m_SpikesAudio = audioSources[3];
         // m_CollectRingAudio = audioSources[4];
     }
@@ -60,17 +60,17 @@ public class MovementManager : MonoBehaviour
 
         if (m_Rigidbody2D.velocity.x != 0 && m_Grounded)
         { 
-            //if ( !m_StepAudio.isPlaying)
-            //{
-            //    m_StepAudio.Play();
-            //}
+            if ( !m_StepAudio.isPlaying)
+            {
+                m_StepAudio.Play();
+            }
 
         }else if (m_Rigidbody2D.velocity.x == 0  || !m_Grounded)
         {
-            //if (m_StepAudio.isPlaying)
-            //{
-            //    m_StepAudio.Stop();
-            //}
+            if (m_StepAudio.isPlaying)
+            {
+                m_StepAudio.Stop();
+            }
         }
         // Debug.Log(gameObject.name + ": " + m_Grounded + ", " + m_Rolling + ", " + m_HasJumped);
     }

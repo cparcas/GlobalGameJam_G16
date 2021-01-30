@@ -45,19 +45,6 @@ public class Door : MonoBehaviour
 
     }
 
-    /*void removeCollider()
-    {
-        Debug.Log("FUCK ME");
-        BoxCollider2D[] colliders = this.GetComponents<BoxCollider2D>();
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].enabled = false;
-            Debug.Log("FUCK");
-        }
-    }*/
-
-
-
     // Update is called once per frame
     void Update()
     {

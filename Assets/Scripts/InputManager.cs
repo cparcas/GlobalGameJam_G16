@@ -34,4 +34,18 @@ public class InputManager : MonoBehaviour
             m_Jump1 = false;
         }
     }
+
+    private void ChangePlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && canMove) //you are looking for 'Lost' once you press E
+        {
+
+            canMove = !canMove;
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && !canMove) //you can see all with 'Found' pressing E
+        {
+
+            canMove = !canMove;
+        }
+    }
 }

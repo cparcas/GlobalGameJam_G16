@@ -8,12 +8,13 @@ public class Door : MonoBehaviour
     [SerializeField] GameObject keyThatOpensThisMotherfuckingDoor;
     public enum State { CLOSED, OPEN }
 
-    public AudioSource door_audio;
+    //public AudioSource door_audio;
 
     private State door_state = State.CLOSED; //inicialmente esta cerrada
 
     private GameObject key;
-
+    private GameObject player;
+    private bool playerRange = false;
 
 
 
@@ -25,16 +26,27 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    void removeCollider()
+    {
+        BoxCollider2D[] colliders = this.GetComponents<BoxCollider2D>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = false;
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D obj)
     {
-        GameObject actualKey = key.gameObject.GetComponent<MovementManager>().actualKey;
+        MovementManager movementManagerScript = player.GetComponent<MovementManager>();
+        GameObject actualKey = movementManagerScript.actualKey;
         if (obj.gameObject.tag == "Player" && keyThatOpensThisMotherfuckingDoor == actualKey)
         {
-            BoxCollider2D collider = this.GetComponent<BoxCollider2D>();
-            collider.enabled = false;
-            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            Debug.Log("ABRIR");
+            playerRange = true;
         }
 
     }
@@ -44,8 +56,11 @@ public class Door : MonoBehaviour
     {
         if (DoorState == State.CLOSED)
         {
-            door_state = State.OPEN;
-            door_audio.Play();
+            if (playerRange)
+            {
+                door_state = State.OPEN;
+                // door_audio.Play();
+            }
 
         }
     }

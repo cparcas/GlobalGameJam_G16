@@ -58,7 +58,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.09
+  m_PointLightInnerRadius: 0.1
   m_PointLightOuterRadius: 4
   m_PointLightDistance: 3
   m_PointLightQuality: 1
@@ -340,3 +340,4 @@ MonoBehaviour:
   m_MaxSpeed: 10
   m_JumpForce: 400
   m_SpawnPoint: {fileID: 9091065971985888654}
+  timeLeft: 0

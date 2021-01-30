@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class MovementManager : MonoBehaviour
 {
@@ -21,8 +22,8 @@ public class MovementManager : MonoBehaviour
     private bool m_HasJumped = false;   // For determining which way the player is currently facing.
     private int m_NumRings = 0;         // Number of rings collected
     private Transform newSpawnPoint;
-    
 
+    public float timeLeft = 0;
     // private AudioSource m_JumpAudio;
     // private AudioSource m_LandAudio;
     // private AudioSource m_StepAudio;
@@ -43,7 +44,15 @@ public class MovementManager : MonoBehaviour
         // m_SpikesAudio = audioSources[3];
         // m_CollectRingAudio = audioSources[4];
     }
-
+    private void Update()
+    {
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = 4;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.01f;
+        }
+    }
     private void FixedUpdate()
     {
         //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
@@ -89,7 +98,10 @@ public class MovementManager : MonoBehaviour
         }else 
         if (other.collider.CompareTag("LigthObj"))
         {
-            //this.gameObject.GetComponent<>
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius =10;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.05f;
+            timeLeft = 5;
+            Destroy(other.gameObject);
         }
 
 

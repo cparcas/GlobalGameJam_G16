@@ -54,12 +54,12 @@ public class ChangeCameras : MonoBehaviour
     IEnumerator Transition(Transform tt, float value)
     {
         float t = 0.0f;
-        Vector3 startingPos = this.transform.position;
-        while (transform.position != tt.position)
+        Vector2 startingPos = this.transform.position;
+        while(t < 1.0f)
         {
             t += Time.deltaTime * (Time.timeScale / transitionDuration);
-            transform.position = Vector3.Lerp(startingPos, tt.position, t);
-            this.GetComponent<Camera>().orthographicSize = Mathf.Lerp(this.GetComponent<Camera>().orthographicSize, value, t);
+            transform.position = Vector2.Lerp(startingPos, tt.position, t);
+            //this.GetComponent<Camera>().orthographicSize = Mathf.Lerp(this.GetComponent<Camera>().orthographicSize, value, t);
             yield return 0;
         }
 

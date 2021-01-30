@@ -58,5 +58,6 @@ public class MenuManagerScript : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+        Debug.Log("Enga pa fuera");
     }
 }

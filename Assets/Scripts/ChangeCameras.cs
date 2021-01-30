@@ -35,7 +35,7 @@ public class ChangeCameras : MonoBehaviour
     public void Update()
     {
         if (globalCamera) {
-            Debug.Log("Estoy entrando aqui bro");
+            //Debug.Log("Estoy entrando aqui bro");
             this.transform.position = new Vector3(input.Player1.transform.position.x, input.Player1.transform.position.y, this.transform.position.z);
         }
         if (Input.GetKeyDown(KeyCode.E) && timer.canChange)

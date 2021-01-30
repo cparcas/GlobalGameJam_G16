@@ -35,13 +35,11 @@ public class Door : MonoBehaviour
         GameObject actualKey = movementManagerScript.actualKey;
         if (obj.gameObject.tag == "Player" && keyThatOpensThisMotherfuckingDoor == actualKey)
         {
-            Debug.Log("ABRIR");
             playerRange = true;
             BoxCollider2D[] colliders = this.GetComponents<BoxCollider2D>();
             for (int i = 0; i < colliders.Length; i++)
             {
                 colliders[i].enabled = false;
-                Debug.Log("FUCK");
             }
         }
 
@@ -67,7 +65,6 @@ public class Door : MonoBehaviour
         {
             if (playerRange)
             {
-                Debug.Log("YA ES MARTEEEEEEEEEEES");
                 door_state = State.OPEN;
                 door_audio.Play();
             }

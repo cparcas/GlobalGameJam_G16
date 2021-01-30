@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     [SerializeField] GameObject keyThatOpensThisMotherfuckingDoor;
     public enum State { CLOSED, OPEN }
 
-    public AudioSource door_audio;
+    //public AudioSource door_audio;
 
     private State door_state = State.CLOSED; //inicialmente esta cerrada
 
@@ -40,7 +40,7 @@ public class Door : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   /* void Update()
     {
         if (DoorState == State.CLOSED)
         {
@@ -48,6 +48,6 @@ public class Door : MonoBehaviour
             door_audio.Play();
 
         }
-    }
+    }*/
 }
 

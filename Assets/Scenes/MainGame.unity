@@ -98265,6 +98265,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910292762}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 --- !u!213 &913443712
 Sprite:
   m_ObjectHideFlags: 0
@@ -98509,6 +98510,13 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+=======
+--- !u!1 &984982008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 815065642875945549, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
+  m_PrefabInstance: {fileID: 815065643292672012}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> 1e3e57c532c6e2d037843ea8cf1f4bd7064514c5
 --- !u!4 &999033743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1374506189762159117, guid: 7ab31906a2b7f8646954d607eae672c1, type: 3}
@@ -98848,7 +98856,11 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 815065643522287882, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
   m_PrefabInstance: {fileID: 815065643292672012}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 342360277}
+=======
+  m_GameObject: {fileID: 984982008}
+>>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce737be47a83d1847a675e2149560b19, type: 3}
@@ -102860,11 +102872,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451596fe6dba3b64fb2fb9c7e41203a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalTime: 2
+  TotalTime: 180
   text: {fileID: 1783087069}
   timePerItem: 20
   canChange: 0
   lessTime: 0
+  player: {fileID: 984982008}
 --- !u!4 &2061533541
 Transform:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class MovementManager : MonoBehaviour
     public float intensidadfin;
     private float RadioOfin;
     private float RadioIfin;
-    private float RadioActual;
+    public float RadioActual;
 
     private void Awake()
     {
@@ -75,7 +75,7 @@ public class MovementManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+        m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
 
         if (m_Rigidbody2D.velocity.x != 0 && m_Grounded)
         {
@@ -101,7 +101,7 @@ public class MovementManager : MonoBehaviour
         {
             // Debug.Log(gameObject.name + " Enter Collision");
             m_Grounded = true;
-            //m_Anim.SetBool("Ground", true);
+            m_Anim.SetBool("Ground", true);
             //m_LandAudio.Play();
 
             if (m_HasJumped)
@@ -154,7 +154,7 @@ public class MovementManager : MonoBehaviour
         // Only control the player if grounded or airControl is turned on
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
-        //m_Anim.SetFloat("Speed", Mathf.Abs(move));
+        m_Anim.SetFloat("Speed", Mathf.Abs(move));
         m_Rigidbody2D.freezeRotation = true;
 
         m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
@@ -177,7 +177,7 @@ public class MovementManager : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            //m_Anim.SetBool("Ground", false);
+            m_Anim.SetBool("Ground", false);
             m_HasJumped = true;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }

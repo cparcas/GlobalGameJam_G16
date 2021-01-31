@@ -8,7 +8,8 @@ public class MenuController : MonoBehaviour
 {
     public void toGame()
     {
-        SceneManager.LoadScene("MainGame", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainGameCarlos", LoadSceneMode.Single);
+        SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
     }
 
     public void ExitGame()

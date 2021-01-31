@@ -234,7 +234,7 @@ Animator:
   m_GameObject: {fileID: 815065642875945549}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 141fbb8580595e14988bf20cfe43465f, type: 2}
+  m_Controller: {fileID: 9100000, guid: a4cdb3a6e11fc5644b396c09390bea4e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -260,6 +260,11 @@ MonoBehaviour:
   m_SpawnPoint: {fileID: 815065642875945550}
   actualKey: {fileID: 0}
   timeLeft: 20
+  intensidadinicio: 0
+  RadioOinicio: 0
+  RadioIinicio: 0
+  intensidadfin: 0
+  RadioActual: 0
 --- !u!82 &815065642875945551
 AudioSource:
   m_ObjectHideFlags: 0

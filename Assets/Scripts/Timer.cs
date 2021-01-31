@@ -18,12 +18,11 @@ public class Timer : MonoBehaviour
 
 	public bool canChange;
 
-	public bool inciarContador;
+	public bool lessTime;
 
 	// Use this for initialization
 	void Start()
 	{
-	
 	}
 
 	void OnEnable()
@@ -36,21 +35,17 @@ public class Timer : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		// TODO 1 - Comprobamos si se ha acabado el tiempo
-		if (m_RemainingTime <= 0)
-		{
-			canChange = false;
-		}
-		else
-		{
-			if (inciarContador && canChange)
-			{
-				// TODO 5 - Restamos al tiempo restante el tiempo que ha pasado
-				m_RemainingTime -= Time.deltaTime;
-				text.text = changeTime(m_RemainingTime);
-			}
-
-		}
+        if (!lessTime)
+        {
+			m_RemainingTime -= 10.0f;
+			lessTime = !lessTime;
+        }
+		m_RemainingTime -= Time.deltaTime;
+		text.text = changeTime(m_RemainingTime);
+		if(m_RemainingTime <= 0) //you can't have negative time less // you've lost
+        {
+			m_RemainingTime = 0;
+        }
 	}
 	public String changeTime(float time) {
 

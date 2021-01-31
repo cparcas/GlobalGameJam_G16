@@ -32,7 +32,7 @@ public class ChangeCameras : MonoBehaviour
     {
         input.canMove = true;
         timer.canChange = true;
-        timer.inciarContador = false;
+        timer.lessTime = true;
         this.globalCamera = true;
     }
 
@@ -45,7 +45,7 @@ public class ChangeCameras : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && timer.canChange)
         {
  
-            timer.inciarContador = !timer.inciarContador;
+            timer.lessTime = !timer.lessTime;
             input.canMove = !input.canMove;
             globalCamera = !globalCamera;
             if (globalCamera)

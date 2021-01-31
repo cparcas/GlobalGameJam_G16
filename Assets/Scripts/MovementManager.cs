@@ -40,10 +40,9 @@ public class MovementManager : MonoBehaviour
     
     [SerializeField]
     public float intensidadfin;
-    [SerializeField]
-    public float RadioOfin;
-    [SerializeField]
-    public float RadioIfin;
+    private float RadioOfin;
+    private float RadioIfin;
+    private float RadioActual;
 
     private void Awake()
     {
@@ -58,19 +57,20 @@ public class MovementManager : MonoBehaviour
         m_StepAudio = audioSources[0];
         // m_SpikesAudio = audioSources[3];
         // m_CollectRingAudio = audioSources[4];
+        this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOinicio;
+        this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIinicio;
+        this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadinicio;
     }
     private void Update()
     {
         timeLeft -= Time.deltaTime;
         if (timeLeft > 0)
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOinicio;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIinicio;
-            this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadinicio;
+            RadioActual = this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius;
         }
         else
         {
-            this.transform.position = new Vector2(-7, -3);
+            //this.transform.position = new Vector2(-7, -3);
         }
     }
     private void FixedUpdate()
@@ -118,8 +118,8 @@ public class MovementManager : MonoBehaviour
         }else 
         if (other.collider.CompareTag("LigthObj"))
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOfin;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIfin;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioActual + 2;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioActual + 2;
             this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadfin;
             timeLeft = 5;
             Destroy(other.gameObject);

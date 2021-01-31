@@ -67,11 +67,7 @@ public class MovementManager : MonoBehaviour
             this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOinicio;
             this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIinicio;
             this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadinicio;
-        }
-        else
-        {
-            this.transform.position = new Vector2(-7, -3);
-        }
+        } 
     }
     private void FixedUpdate()
     {

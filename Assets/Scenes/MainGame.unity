@@ -100881,7 +100881,7 @@ MonoBehaviour:
   text: {fileID: 1783087069}
   timePerItem: 20
   canChange: 0
-  inciarContador: 0
+  lessTime: 0
 --- !u!4 &2061533541
 Transform:
   m_ObjectHideFlags: 0
@@ -100991,7 +100991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1742531860007162140, guid: 7c569acdc98bb25438f9f08eea852d24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.95
+      value: -7.49
       objectReference: {fileID: 0}
     - target: {fileID: 1742531860007162140, guid: 7c569acdc98bb25438f9f08eea852d24, type: 3}
       propertyPath: m_LocalPosition.y

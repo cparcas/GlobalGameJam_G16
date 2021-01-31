@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.UI;
 
 public class ChangeCameras : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class ChangeCameras : MonoBehaviour
 
     [SerializeField]
     public float nearest;
-
+    [SerializeField]
+    Camera camera2; 
+    [SerializeField]
+    Camera camera1;
     [SerializeField]
     public float intensidadGlobal;
     [SerializeField]
@@ -27,6 +31,12 @@ public class ChangeCameras : MonoBehaviour
     [SerializeField]
     public Transform puntoFinal;
 
+    private float finnM;
+
+    [SerializeField]
+    public Image found;
+
+
     private bool puesbools=false;
     public void Start()
     {
@@ -34,6 +44,8 @@ public class ChangeCameras : MonoBehaviour
         timer.canChange = true;
         timer.lessTime = true;
         this.globalCamera = true;
+        camera1.enabled = true;
+        camera2.enabled = false;
     }
 
     public void Update()
@@ -48,9 +60,11 @@ public class ChangeCameras : MonoBehaviour
             timer.lessTime = !timer.lessTime;
             input.canMove = !input.canMove;
             globalCamera = !globalCamera;
+            camera2.enabled = !camera2.enabled;  
+            camera1.enabled = !camera1.enabled;
             if (globalCamera)
             {
-                StartCoroutine(Transition(defaultvalueNear, defaultvalueLigth));
+                StartCoroutine(Transition(defaultvalueNear, defaultvalueLigth , true));
                 puesbools = true;
                 //if (puesbools)
                 //{
@@ -61,7 +75,7 @@ public class ChangeCameras : MonoBehaviour
             }
             else
             {
-                StartCoroutine(Transition(nearest, intensidadGlobal));
+                StartCoroutine(Transition(nearest, intensidadGlobal, false));
                 //puesbools = true;
                 //if (puesbools)
                 //{
@@ -73,35 +87,45 @@ public class ChangeCameras : MonoBehaviour
        
     }
 
-    IEnumerator Transition(float value, float intensity)
+    IEnumerator Transition(float value, float intensity, bool isGlobal)
     {
+        float iniii = 0;
+        float fin = 0.8f;
+        if (isGlobal) {
+            iniii = 0.8f;
+            fin = 0;
+        }
+        //float startingPosX = this.transform.position.x;
+        //float startingPosY = this.transform.position.y;
         float t = 0.0f;
-        float ini = this.GetComponent<Camera>().orthographicSize;
+        //float ini = camera2.orthographicSize;
         float ints = GameObject.FindGameObjectWithTag("GlobalLigth").GetComponent<Light2D>().intensity;
-
+        Color c = found.color;
+        //transform.position = new Vector3(ttt.position.x, ttt.position.y, -10);
         while (t < 1.0f)
         {
             t += Time.deltaTime * (Time.timeScale / transitionDuration);
-            this.GetComponent<Camera>().orthographicSize = Mathf.Lerp(ini, value, t);
-            GameObject.FindGameObjectWithTag("GlobalLigth").GetComponent<Light2D>().intensity = Mathf.Lerp(ints, intensity, t);
-            
+            c.a = Mathf.Lerp(iniii, fin, t);
+            found.color = c;
+            //camera2.orthographicSize = Mathf.Lerp(ini, value, t);
+            GameObject.FindGameObjectWithTag("GlobalLigth").GetComponent<Light2D>().intensity = Mathf.Lerp(ints, intensity, t);   
             yield return 0;
         }
-        yield return 0;
+        //transform.position = new Vector3(startingPosX, startingPosY, -10);
     }
-    IEnumerator Transition2(Transform ttt)
-    {
-        float t = 0.0f;
-        float startingPosX = this.transform.position.x;
-        float startingPosY = this.transform.position.y;
-        while (t < 1.0f)
-        {
-            t += Time.deltaTime * (Time.timeScale / transitionDuration);
-            float x = Mathf.Lerp(startingPosX, ttt.position.x, t);
-            float y = Mathf.Lerp(startingPosY, ttt.position.y, t);
-            this.transform.position = new Vector3(x, y, -10);
-            yield return 0;
-        }
-    }
+    //IEnumerator Transition2()
+    //{
+    //    float t = 0.0f;
+    //    float startingPosX = this.transform.position.x;
+    //    float startingPosY = this.transform.position.y;
+    //    while (t < 1.0f)
+    //    {
+    //        t += Time.deltaTime * (Time.timeScale / transitionDuration);
+    //        float x = Mathf.Lerp(startingPosX, ttt.position.x, t);
+    //        float y = Mathf.Lerp(startingPosY, ttt.position.y, t);
+    //        this.transform.position = new Vector3(x, y, -10);
+    //        yield return 0;
+    //    }
+    //}
 
 }

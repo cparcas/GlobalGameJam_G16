@@ -51,7 +51,7 @@ public class Timer : MonoBehaviour
 
 		int secs = (int) time % 60;
 		int minut = (int) time / 60;
-		return string.Format("{0}:{1}", minut, secs);
+		return string.Format("{0}:{1}", minut.ToString("00"), secs.ToString("00"));
 	}
 
 	public void moreTime() {

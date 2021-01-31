@@ -52,12 +52,11 @@ public class MenuManagerScript : MonoBehaviour
 
     public void GoToMenu()
     {
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        SceneManager.LoadScene("MenuPrincipal", LoadSceneMode.Single);
     }
 
     public void ExitGame()
     {
         Application.Quit();
-        Debug.Log("Enga pa fuera");
     }
 }

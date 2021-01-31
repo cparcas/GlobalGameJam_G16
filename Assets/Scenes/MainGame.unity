@@ -99487,7 +99487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451596fe6dba3b64fb2fb9c7e41203a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalTime: 200
+  TotalTime: 2
   text: {fileID: 1783087069}
   timePerItem: 20
   canChange: 0
@@ -99622,11 +99622,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 815065642875945550, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.49
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 815065642875945550, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 815065642875945550, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -99679,6 +99679,10 @@ PrefabInstance:
     - target: {fileID: 815065643522287882, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
       propertyPath: m_JumpForce
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 815065643522287882, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
+      propertyPath: intensidadinicio
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}

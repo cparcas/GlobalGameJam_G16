@@ -30,6 +30,20 @@ public class MovementManager : MonoBehaviour
     private AudioSource m_StepAudio;
     // private AudioSource m_SpikesAudio;
     // private AudioSource m_CollectRingAudio;
+    
+    [SerializeField]
+    public float intensidadinicio;
+    [SerializeField]
+    public float RadioOinicio;
+    [SerializeField]
+    public float RadioIinicio; 
+    
+    [SerializeField]
+    public float intensidadfin;
+    [SerializeField]
+    public float RadioOfin;
+    [SerializeField]
+    public float RadioIfin;
 
     private void Awake()
     {
@@ -48,10 +62,15 @@ public class MovementManager : MonoBehaviour
     private void Update()
     {
         timeLeft -= Time.deltaTime;
-        if (timeLeft < 0)
+        if (timeLeft > 0)
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = 2;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.1f;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOinicio;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIinicio;
+            this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadinicio;
+        }
+        else
+        {
+            this.transform.position = new Vector2(-7, -3);
         }
     }
     private void FixedUpdate()
@@ -99,8 +118,9 @@ public class MovementManager : MonoBehaviour
         }else 
         if (other.collider.CompareTag("LigthObj"))
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius =5;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = 0.4f;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOfin;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIfin;
+            this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadfin;
             timeLeft = 5;
             Destroy(other.gameObject);
         }

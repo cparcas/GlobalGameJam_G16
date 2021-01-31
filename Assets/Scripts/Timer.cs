@@ -44,7 +44,8 @@ public class Timer : MonoBehaviour
 		text.text = changeTime(m_RemainingTime);
 		if(m_RemainingTime <= 0) //you can't have negative time less // you've lost
         {
-			m_RemainingTime = 0;
+			
+			m_RemainingTime = 200;
         }
 	}
 	public String changeTime(float time) {

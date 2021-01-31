@@ -22,7 +22,7 @@ public class clock : MonoBehaviour
         if (obj.gameObject.tag == "Player")
         {
             clock_audio.Play();
-            this.GetComponent<BoxCollider2D>().enabled = false;
+            this.GetComponent<Collider2D>().enabled = false;
         }
 
     }

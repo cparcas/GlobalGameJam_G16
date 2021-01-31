@@ -17,7 +17,7 @@ public class MovementManager : MonoBehaviour
 
     private bool m_Grounded = true;     // Whether or not the player is grounded
 
-   
+
 
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private bool m_HasJumped = false;   // For determining which way the player is currently facing.
@@ -25,25 +25,24 @@ public class MovementManager : MonoBehaviour
     private Transform newSpawnPoint;
 
     public float timeLeft = 0;
-   // private AudioSource m_PickObject;
+    // private AudioSource m_PickObject;
     // private AudioSource m_LandAudio;
     private AudioSource m_StepAudio;
     // private AudioSource m_SpikesAudio;
     // private AudioSource m_CollectRingAudio;
-    
+
     [SerializeField]
     public float intensidadinicio;
     [SerializeField]
     public float RadioOinicio;
     [SerializeField]
-    public float RadioIinicio; 
-    
+    public float RadioIinicio;
+
     [SerializeField]
     public float intensidadfin;
-    [SerializeField]
-    public float RadioOfin;
-    [SerializeField]
-    public float RadioIfin;
+    private float RadioOfin;
+    private float RadioIfin;
+    private float RadioActual;
 
     private void Awake()
     {
@@ -58,29 +57,35 @@ public class MovementManager : MonoBehaviour
         m_StepAudio = audioSources[0];
         // m_SpikesAudio = audioSources[3];
         // m_CollectRingAudio = audioSources[4];
+        this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOinicio;
+        this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIinicio;
+        this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadinicio;
     }
     private void Update()
     {
         timeLeft -= Time.deltaTime;
         if (timeLeft > 0)
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOinicio;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIinicio;
-            this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadinicio;
-        } 
+            RadioActual = this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius;
+        }
+        else
+        {
+            //this.transform.position = new Vector2(-7, -3);
+        }
     }
     private void FixedUpdate()
     {
         //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
 
         if (m_Rigidbody2D.velocity.x != 0 && m_Grounded)
-        { 
-            if ( !m_StepAudio.isPlaying)
+        {
+            if (!m_StepAudio.isPlaying)
             {
                 m_StepAudio.Play();
             }
 
-        }else if (m_Rigidbody2D.velocity.x == 0  || !m_Grounded)
+        }
+        else if (m_Rigidbody2D.velocity.x == 0 || !m_Grounded)
         {
             if (m_StepAudio.isPlaying)
             {
@@ -92,7 +97,7 @@ public class MovementManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.contacts[0].normal.y > 0) 
+        if (other.contacts[0].normal.y > 0)
         {
             // Debug.Log(gameObject.name + " Enter Collision");
             m_Grounded = true;
@@ -111,11 +116,12 @@ public class MovementManager : MonoBehaviour
             Timer temp = tt.GetComponent<Timer>();
             temp.moreTime();
             Destroy(other.gameObject);
-        }else 
+        }
+        else
         if (other.collider.CompareTag("LigthObj"))
         {
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioOfin;
-            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioIfin;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightOuterRadius = RadioActual + 2;
+            this.gameObject.GetComponentInChildren<Light2D>().pointLightInnerRadius = RadioActual + 2;
             this.gameObject.GetComponentInChildren<Light2D>().intensity = intensidadfin;
             timeLeft = 5;
             Destroy(other.gameObject);
@@ -152,9 +158,9 @@ public class MovementManager : MonoBehaviour
         m_Rigidbody2D.freezeRotation = true;
 
         m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
-        
+
         // Move the character
-       
+
 
         // If the input is moving the player one way and the player is facing the other...
         if ((move > 0 && !m_FacingRight) || (move < 0 && m_FacingRight))
@@ -204,6 +210,6 @@ public class MovementManager : MonoBehaviour
     }
     internal void removeVelocity()
     {
-        m_Rigidbody2D.velocity = new Vector2(0,0);
+        m_Rigidbody2D.velocity = new Vector2(0, 0);
     }
 }

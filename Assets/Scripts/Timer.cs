@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-	public float TotalTime;
+	public float TotalTime = 300;
 
 	private float m_RemainingTime;
 	[SerializeField]
@@ -19,17 +19,22 @@ public class Timer : MonoBehaviour
 	public bool canChange;
 
 	public bool lessTime;
+	public GameObject player;
+	public Vector3 spawner;
 
 	// Use this for initialization
 	void Start()
 	{
+		text.text = changeTime(TotalTime);
+		m_RemainingTime = TotalTime;
+		spawner = player.transform.position;
 	}
 
 	void OnEnable()
 	{
 		// Al activarlo reseteamos el tiempo total que dura el powerup
-		text.text = changeTime(TotalTime);
-		m_RemainingTime = TotalTime;
+		/*text.text = changeTime(TotalTime);
+		m_RemainingTime = TotalTime;*/
 	}
 
 	// Update is called once per frame
@@ -44,8 +49,9 @@ public class Timer : MonoBehaviour
 		text.text = changeTime(m_RemainingTime);
 		if(m_RemainingTime <= 0) //you can't have negative time less // you've lost
         {
-			
-			m_RemainingTime = 200;
+			m_RemainingTime = 180;
+			player.transform.position = spawner;
+
         }
 	}
 	public String changeTime(float time) {

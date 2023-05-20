@@ -34,8 +34,8 @@ public class ExecuteFinal : MonoBehaviour
             yield return new WaitForSeconds(1); 
 
         }
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("MenuPrincipal", LoadSceneMode.Single);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Creditos", LoadSceneMode.Single);
         yield return 0;
     }
 }

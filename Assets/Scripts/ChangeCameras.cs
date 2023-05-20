@@ -35,6 +35,7 @@ public class ChangeCameras : MonoBehaviour
 
     [SerializeField]
     public Image found;
+
     public void Start()
     {
         input.canMove = true;

@@ -99,10 +99,8 @@ public class MovementManager : MonoBehaviour
     {
         if (other.collider.CompareTag("Main Level"))
         {
-            // Debug.Log(other.gameObject.name + " Enter Collision");
             m_Grounded = true;
             m_Anim.SetBool("Ground", true);
-            //m_LandAudio.Play();
 
             if (m_HasJumped)
             {

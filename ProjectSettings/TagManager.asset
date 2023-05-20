@@ -8,6 +8,7 @@ TagManager:
   - Timer
   - LigthObj
   - GlobalLigth
+  - Main Level
   layers:
   - Default
   - TransparentFX

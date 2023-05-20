@@ -35,9 +35,6 @@ public class ChangeCameras : MonoBehaviour
 
     [SerializeField]
     public Image found;
-
-
-    private bool puesbools=false;
     public void Start()
     {
         input.canMove = true;
@@ -65,23 +62,11 @@ public class ChangeCameras : MonoBehaviour
             if (globalCamera)
             {
                 StartCoroutine(Transition(defaultvalueNear, defaultvalueLigth , true));
-                puesbools = true;
-                //if (puesbools)
-                //{
-                //    StartCoroutine(Transition2(input.Player1.transform));
-                //    puesbools = false;
-                //}
 
             }
             else
             {
                 StartCoroutine(Transition(nearest, intensidadGlobal, false));
-                //puesbools = true;
-                //if (puesbools)
-                //{
-                //    StartCoroutine(Transition2(puntoFinal));
-                //    puesbools = false;
-                //}
             }
         }
        

@@ -97,7 +97,6 @@ public class MovementManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.name + " Enter Collision");
         if (other.collider.CompareTag("Main Level"))
         {
             // Debug.Log(other.gameObject.name + " Enter Collision");

@@ -99533,6 +99533,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a4cdb3a6e11fc5644b396c09390bea4e, type: 2}
+    - target: {fileID: 815065642875945545, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 815065642875945546, guid: b64a8394ddeedd04daa1999b1c75ec8c, type: 3}
       propertyPath: m_GravityScale
       value: 1.3

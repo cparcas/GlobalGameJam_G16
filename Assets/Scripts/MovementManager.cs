@@ -97,9 +97,10 @@ public class MovementManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.contacts[0].normal.y > 0)
+        Debug.Log(other.gameObject.name + " Enter Collision");
+        if (other.collider.CompareTag("Main Level"))
         {
-            // Debug.Log(gameObject.name + " Enter Collision");
+            // Debug.Log(other.gameObject.name + " Enter Collision");
             m_Grounded = true;
             m_Anim.SetBool("Ground", true);
             //m_LandAudio.Play();
